@@ -26,9 +26,13 @@ for user_id in os.listdir(processed_folder):
             # Load audio
             y, sr = librosa.load(filepath, sr=sample_rate)
 
-            # Compute mel-spectrogram
+            # Compute mel-spectrogram (keyword-only arguments)
             mel = librosa.feature.melspectrogram(
-                y, sr=sr, n_mels=n_mels, hop_length=hop_length, n_fft=win_length
+                y=y,
+                sr=sr,
+                n_mels=n_mels,
+                hop_length=hop_length,
+                n_fft=win_length
             )
 
             # Convert to log scale
